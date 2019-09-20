@@ -88,13 +88,11 @@ function handleDeleteItemClicked() {
     deleteItem(id);
     renderShoppingList();
   });
-  console.log('`handleDeleteItemClicked` ran')
 }
 
 //deletes list item
 function deleteItem (itemId) {
   const item = STORE.findIndex(item => item.id === itemId);
-  console.log (item, 'is this unique?');
   STORE.splice (item, 1);
 }
 
