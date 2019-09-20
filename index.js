@@ -89,13 +89,12 @@ function handleDeleteItemClicked() {
     deleteItem(id);
     renderShoppingList();
   });
-  console.log('`handleDeleteItemClicked` ran')
 }
 
 //deletes list item
 function deleteItem (itemId) {
-  console.log(`ItemId for delete is ${itemId}`);
-  delete STORE.itemId;
+  const item = STORE.findIndex(item => item.id === itemId);
+  STORE.splice (item, 1);
 }
 
 // this function will be our callback when the page loads. it's responsible for
