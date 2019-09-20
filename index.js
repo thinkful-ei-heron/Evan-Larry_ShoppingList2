@@ -83,17 +83,19 @@ function handleItemCheckClicked() {
 
 function handleDeleteItemClicked() {
   $('.js-shopping-list').on('click', `.js-item-delete`, event => {
-     console.log('`handleItemDeleteClicked` ran');
-     const id = getItemIdFromElement(event.currentTarget);
-     deleteItem(id);
-     renderShoppingList();
+    console.log('`handleItemDeleteClicked` ran');
+    const id = getItemIdFromElement(event.currentTarget);
+    deleteItem(id);
+    renderShoppingList();
   });
   console.log('`handleDeleteItemClicked` ran')
 }
 
 //deletes list item
 function deleteItem (itemId) {
-  delete STORE.itemId;
+  const item = STORE.findIndex(item => item.id === itemId);
+  console.log (item, 'is this unique?');
+  STORE.splice (item, 1);
 }
 
 // this function will be our callback when the page loads. it's responsible for
