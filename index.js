@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 const STORE = [
@@ -60,7 +61,7 @@ function handleNewItemSubmit() {
 }
 
 function toggleCheckedForListItem(itemId) {
-  console.log("Toggling checked property for item with id " + itemId);
+  console.log('Toggling checked property for item with id ' + itemId);
   const item = STORE.find(item => item.id === itemId);
   item.checked = !item.checked;
 }
@@ -83,16 +84,17 @@ function handleItemCheckClicked() {
 
 function handleDeleteItemClicked() {
   $('.js-shopping-list').on('click', `.js-item-delete`, event => {
-     console.log('`handleItemDeleteClicked` ran');
-     const id = getItemIdFromElement(event.currentTarget);
-     deleteItem(id);
-     renderShoppingList();
+    console.log('`handleItemDeleteClicked` ran');
+    const id = getItemIdFromElement(event.currentTarget);
+    deleteItem(id);
+    renderShoppingList();
   });
   console.log('`handleDeleteItemClicked` ran')
 }
 
 //deletes list item
 function deleteItem (itemId) {
+  console.log(`ItemId for delete is ${itemId}`);
   delete STORE.itemId;
 }
 
